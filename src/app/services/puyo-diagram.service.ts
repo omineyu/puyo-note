@@ -9,17 +9,18 @@ import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-stat
 })
 export class PuyoDiagramService {
 
-  private db!: Dexie;
+  private db: Dexie;
 
   constructor() {
-    this.initDb();
+    this.db = this.initDb();
   }
 
-  private initDb(): void {
-    this.db = new Dexie('PuyoNoteDatabase');
-    this.db.version(1).stores({
+  private initDb(): Dexie {
+    const db = new Dexie('PuyoNoteDatabase');
+    db.version(1).stores({
       puyoDiagrams: '++id, name, status, field'
     });
+    return db;
   }
 
   async getPuyoDiagrams(status: PuyoDiagramStatus): Promise<PuyoDiagram[]> {
