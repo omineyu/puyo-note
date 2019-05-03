@@ -12,7 +12,7 @@ import { Puyo } from 'src/app/models/puyo-diagram/puyo';
 export class PuyoField {
 
   constructor(
-    private readonly field: Puyo[][]
+    private readonly data: Puyo[][]
   ) {}
 
   /**
@@ -42,14 +42,14 @@ export class PuyoField {
     const puyoAt = (i: number, j: number) => (isWall(i, j) ? Puyo.Wall : Puyo.Empty);
 
     const includesWalls = true;
-    const emptyField: Puyo[][] =
+    const emptyData: Puyo[][] =
       this.rowIndices(includesWalls).map(i =>
         this.colIndices(includesWalls).map(j =>
           puyoAt(i, j)
         )
       );
 
-    return new PuyoField(emptyField);
+    return new PuyoField(emptyData);
   }
 
   /**
@@ -108,8 +108,8 @@ export class PuyoField {
    * @returns PuyoFieldのコピー
    */
   copy(): PuyoField {
-    const copiedField = JSON.parse(JSON.stringify(this.field));
-    return new PuyoField(copiedField);
+    const copiedData = JSON.parse(JSON.stringify(this.data));
+    return new PuyoField(copiedData);
   }
 
   /**
@@ -118,8 +118,8 @@ export class PuyoField {
    * @returns PuyoFieldを表す2次元配列
    */
   toArray(): Puyo[][] {
-    const copiedField = JSON.parse(JSON.stringify(this.field));
-    return copiedField;
+    const copiedData = JSON.parse(JSON.stringify(this.data));
+    return copiedData;
   }
 
   /**
@@ -133,7 +133,7 @@ export class PuyoField {
       throw new RangeError(`Position [${position}] is out of PuyoField`);
     }
     const [i, j] = position;
-    return this.field[i][j];
+    return this.data[i][j];
   }
 
   /**
@@ -147,7 +147,7 @@ export class PuyoField {
       throw new RangeError(`Position [${position}] is out of PuyoField`);
     }
     const [i, j] = position;
-    this.field[i][j] = puyo;
+    this.data[i][j] = puyo;
   }
 
   /**
