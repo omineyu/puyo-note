@@ -9,7 +9,7 @@ import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-stat
 })
 export class PuyoDiagramService {
 
-  private db: Dexie | any;
+  private db!: Dexie;
 
   constructor() {
     this.initDb();
@@ -23,7 +23,7 @@ export class PuyoDiagramService {
   }
 
   async getPuyoDiagrams(status: PuyoDiagramStatus): Promise<PuyoDiagram[]> {
-    return this.db.puyoDiagrams
+    return (this.db as any).puyoDiagrams
       .where('status').equals(status)
       .toArray((diagrams: PuyoDiagramRecord[]) => diagrams
         .reverse() // 古い順から新しい順に並び替える
@@ -32,15 +32,15 @@ export class PuyoDiagramService {
   }
 
   async addPuyoDiagram(puyoDiagram: PuyoDiagram): Promise<void> {
-    this.db.puyoDiagrams.add(puyoDiagram.toRecord());
+    (this.db as any).puyoDiagrams.add(puyoDiagram.toRecord());
   }
 
   async updatePuyoDiagram(puyoDiagram: PuyoDiagram): Promise<void> {
-    this.db.puyoDiagrams.update(puyoDiagram.id, puyoDiagram.toRecord());
+    (this.db as any).puyoDiagrams.update(puyoDiagram.id, puyoDiagram.toRecord());
   }
 
   async deletePuyoDiagram(puyoDiagram: PuyoDiagram): Promise<void> {
-    this.db.puyoDiagrams.delete(puyoDiagram.id);
+    (this.db as any).puyoDiagrams.delete(puyoDiagram.id);
   }
 
 }
