@@ -197,7 +197,7 @@ export class PuyoField {
     const isConnected = (adjacentPosition: Tuple<number>) => {
 
       // 色ぷよでないぷよは他のぷよと連結しない
-      if (!Puyo.isColored(puyo)) {
+      if (!Puyo.isColoredType(puyo)) {
         return false;
       }
 
@@ -235,7 +235,7 @@ export class PuyoField {
   calcConnectionNumber(position: Tuple<number>, _countedPositions: Set<string> = new Set()): number {
 
     // 色ぷよでないぷよの連結数は0
-    if (!Puyo.isColored(this.getPuyo(position))) {
+    if (!Puyo.isColoredType(this.getPuyo(position))) {
       return 0;
     }
 

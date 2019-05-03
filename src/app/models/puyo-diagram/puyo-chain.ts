@@ -63,7 +63,7 @@ export class PuyoChain {
     // 下のぷよから順に落下させる
     for (const position of PuyoField.positions().reverse()) {
       const puyo = this.field.getPuyo(position);
-      if (Puyo.isDroppable(puyo)) {
+      if (Puyo.isDroppableType(puyo)) {
         dropped = this.dropPuyo(position) || dropped;
       }
     }

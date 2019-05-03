@@ -18,7 +18,7 @@ export namespace Puyo {
     }
   }
 
-  export function isColored(puyo: Puyo): boolean {
+  export function isColoredType(puyo: Puyo): boolean {
     return [
       Puyo.Colored1,
       Puyo.Colored2,
@@ -27,7 +27,7 @@ export namespace Puyo {
     ].includes(puyo);
   }
 
-  export function isDroppable(puyo: Puyo): boolean {
+  export function isDroppableType(puyo: Puyo): boolean {
     return [
       Puyo.Colored1,
       Puyo.Colored2,
