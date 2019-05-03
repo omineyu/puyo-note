@@ -1,0 +1,49 @@
+$puyo-size: 32px;
+
+.field {
+  border: 1px solid #cccccc;
+  padding: 5px 0 5px 0;
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  margin: 0 5px 0 5px;
+}
+
+.row-top {
+  filter: brightness(80%) opacity(80%);
+}
+
+.puyo {
+  width: $puyo-size;
+  height: $puyo-size;
+}
+
+img {
+  display: block;
+}
+
+@mixin puyo($i, $j) {
+  width: $puyo-size;
+  height: $puyo-size;
+  object-fit: none;
+  object-position: (-$j * $puyo-size) (-$i * $puyo-size);
+}
+
+.puyo0000 { @include puyo(0, 0) }
+.puyo1000 { @include puyo(0, 1) }
+.puyo0100 { @include puyo(0, 3) }
+.puyo1100 { @include puyo(0, 2) }
+.puyo0010 { @include puyo(1, 0) }
+.puyo1010 { @include puyo(1, 1) }
+.puyo0110 { @include puyo(1, 3) }
+.puyo1110 { @include puyo(1, 2) }
+.puyo0001 { @include puyo(3, 0) }
+.puyo1001 { @include puyo(3, 1) }
+.puyo0101 { @include puyo(3, 3) }
+.puyo1101 { @include puyo(3, 2) }
+.puyo0011 { @include puyo(2, 0) }
+.puyo1011 { @include puyo(2, 1) }
+.puyo0111 { @include puyo(2, 3) }
+.puyo1111 { @include puyo(2, 2) }

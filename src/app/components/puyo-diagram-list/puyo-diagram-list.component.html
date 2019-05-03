@@ -1,0 +1,58 @@
+<div class="puyo-diagram-list-wrapper" *ngIf="puyoDiagrams !== undefined; else spinner">
+
+  <button mat-mini-fab class="add-button" (click)="openCreateDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="puyo-diagram-list" *ngIf="puyoDiagrams.length > 0; else no_puyo_diagrams">
+    <div *ngFor="let puyoDiagram of puyoDiagrams" class="puyo-diagram-wrapper">
+
+      <div class="tool-bar">
+
+        <button
+          mat-icon-button
+          class="player-button"
+          (click)="puyoDiagram.isPlaying() ? puyoDiagram.stop() : puyoDiagram.play()">
+          <mat-icon>{{ puyoDiagram.isPlaying() ? 'stop' : 'play_arrow' }}</mat-icon>
+        </button>
+
+        <mat-form-field class="status-selector">
+          <mat-select
+            [(value)]="puyoDiagram.status"
+            (openedChange)="puyoDiagram.stop()"
+            (selectionChange)="updatePuyoDiagram(puyoDiagram)">
+            <mat-option *ngFor="let status of STATUSES" [value]="status.value">
+              {{ status.value }}. {{ status.key }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button class="delete-button"
+          (click)="openDeleteDialog(puyoDiagram)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </div>
+
+      <div class="puyo-diagram">
+        <app-puyo-diagram [puyoDiagram]="puyoDiagram"
+          (click)="openUpdateDialog(puyoDiagram)">
+        </app-puyo-diagram>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<ng-template #spinner>
+  <div class="spinner-wrapper">
+    <mat-progress-spinner class="spinner" color="primary" mode="indeterminate" strokeWidth="5"></mat-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #no_puyo_diagrams>
+  <div class="no-puyo-diagrams">
+    <!-- TODO -->
+  </div>
+</ng-template>

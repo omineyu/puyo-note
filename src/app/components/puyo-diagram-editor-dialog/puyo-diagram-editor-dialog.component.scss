@@ -1,0 +1,61 @@
+@import '~@angular/material/theming';
+
+@import '../puyo-diagram/puyo-diagram';
+
+* {
+  user-select: none;
+}
+
+.editor {
+  display: flex;
+  margin: 0 0 0 8px;
+}
+
+.field {
+  @include mat-elevation(4, #aaaaaa);
+}
+
+.puyo {
+
+  .puyo-bg {
+    position: absolute;
+  }
+
+  .puyo-fg {
+    position: absolute;
+    width: $puyo-size;
+    height: $puyo-size;
+  }
+
+  .puyo-fg:hover {
+    background-color: red;
+    background: url('../../../assets/images/puyos/palette/selected.png');
+  }
+
+}
+
+.palette {
+
+  margin: 0 0 0 16px;
+
+  .puyo-selector {
+    margin-left: 5px;
+  }
+
+  .puyo-selector:hover {
+    cursor: pointer;
+  }
+
+  .selected {
+    border-right: #cccccc solid 2px;
+  }
+
+  .close-button {
+    margin: 0 0 126px 1px;
+  }
+
+  .save-button {
+    margin: 31px 0 0 1px;
+  }
+
+}

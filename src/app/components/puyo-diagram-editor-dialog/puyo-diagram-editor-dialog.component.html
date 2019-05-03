@@ -1,0 +1,30 @@
+<div class="editor">
+
+  <div class="field">
+    <div class="row" *ngFor="let i of PuyoField.rowIndices()" [class.row-top]="i === 1">
+      <div class="puyo" *ngFor="let j of PuyoField.colIndices()" (click)="puyoDiagram.field.setPuyo([i, j], selectedPuyo);">
+        <div class="puyo-bg">
+          <img src="../../../assets/images/puyos/field/{{ Puyo.nameOf(puyoDiagram.field.getPuyo([i, j])) }}.png"
+            class="{{ 'puyo' + puyoDiagram.field.connectionStatusAt([i, j]) }}" />
+        </div>
+        <div class="puyo-fg"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="undefined" color="primary">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div *ngFor="let puyo of PALETTE_PUYOS"
+      class="puyo-selector"
+      [class.selected]="puyo === selectedPuyo"
+      (click)="selectedPuyo = puyo;">
+      <img src="../../../assets/images/puyos/palette/{{ Puyo.nameOf(puyo) }}.png" />
+    </div>
+    <button mat-icon-button class="save-button" [mat-dialog-close]="puyoDiagram" color="primary">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+
+</div>

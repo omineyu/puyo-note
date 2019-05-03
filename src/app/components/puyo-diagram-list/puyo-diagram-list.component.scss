@@ -1,0 +1,80 @@
+@import '~@angular/material/theming';
+
+.puyo-diagram-list-wrapper {
+  width: 1190px;
+  height: calc(100vh - 199px);
+  margin: 0 auto 0 auto;
+}
+
+.add-button {
+  @include mat-elevation(2);
+  margin: 62px 0 0 0;
+}
+
+.puyo-diagram-list {
+
+  width: 1056px;
+  margin: -84px auto 40px auto;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  .puyo-diagram-wrapper {
+
+    margin: 0 30px 20px 30px;
+
+    .tool-bar {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 -10px 0;
+      .player-button {
+        margin: 0 10px 0 0;
+        color: #297bff;
+      }
+      .status-selector {
+        margin: -10px 0 0 0;
+        width: 100px;
+      }
+      .delete-button {
+        margin: 0 0 0 10px;
+        color: #cccccc;
+      }
+      .delete-button:hover {
+        color: #ff3300;
+      }
+    }
+
+  }
+
+  .puyo-diagram-wrapper > .tool-bar {
+    visibility: hidden;
+  }
+
+  .puyo-diagram-wrapper:hover > .tool-bar {
+    visibility: visible;
+  }
+
+  .puyo-diagram {
+    @include mat-elevation(4, #aaaaaa);
+  }
+
+  .puyo-diagram:hover {
+    @include mat-elevation(4, #000000);
+  }
+
+}
+
+.no-puyo-diagrams {
+  padding: 250px;
+}
+
+.spinner-wrapper {
+
+  margin: 30px 0 30px 0;
+
+  .spinner {
+    margin: 0 auto 0 auto;
+  }
+
+}

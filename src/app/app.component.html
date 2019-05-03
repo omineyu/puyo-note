@@ -1,0 +1,27 @@
+<div class="puyo-note">
+
+  <header class="header">
+    <div class="logo">
+      ぷよのーと
+      <span class="version">{{ VERSION }}</span>
+    </div>
+  </header>
+
+  <div class="warning">
+    注: ぷよのーとは、現在開発中です。ご利用は自己責任でお願いします。
+  </div>
+
+  <mat-tab-group class="puyo-diagram-lists" mat-align-tabs="center" (selectedTabChange)="reloadAll()">
+    <ng-container *ngFor="let status of STATUSES">
+      <mat-tab>
+        <ng-template mat-tab-label>{{ status.value }}. {{ status.key }}</ng-template>
+        <app-puyo-diagram-list [status]="status.value"></app-puyo-diagram-list>
+      </mat-tab>
+    </ng-container>
+  </mat-tab-group>
+
+  <footer class="footer">
+    <!-- TODO -->
+  </footer>
+
+</div>
