@@ -3,8 +3,8 @@ import { OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 
-import { PuyoDiagramEditorDialogComponent } from 'src/app/components/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
-import { PuyoDiagramDeleteDialogComponent } from 'src/app/components/puyo-diagram-list/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
+import { PuyoDiagramDeleteDialogComponent } from 'src/app/components/dialogs/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
+import { PuyoDiagramEditorDialogComponent } from 'src/app/components/dialogs/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
 import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
 import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
 import { PuyoDiagramService } from 'src/app/services/puyo-diagram.service';

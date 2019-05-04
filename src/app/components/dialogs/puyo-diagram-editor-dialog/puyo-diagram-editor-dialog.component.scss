@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-@import '../puyo-diagram/puyo-diagram';
+@import 'src/app/components/puyo-diagram/puyo-diagram';
 
 * {
   user-select: none;
@@ -29,7 +29,7 @@
 
   .puyo-fg:hover {
     background-color: red;
-    background: url('../../../assets/images/puyos/palette/selected.png');
+    background: url('src/assets/images/puyos/palette/selected.png');
   }
 
 }
