@@ -100,10 +100,10 @@ export class PuyoField {
     );
 
     return rowIndices.map(i =>
-        colIndices.map(j =>
-          isEdge(i, j) ? Puyo.Wall : data[i - 1][j - 1]
-        )
-      );
+      colIndices.map(j =>
+        isEdge(i, j) ? Puyo.Wall : data[i - 1][j - 1]
+      )
+    );
   }
 
   /**
