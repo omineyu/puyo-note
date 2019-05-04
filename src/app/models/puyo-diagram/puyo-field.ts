@@ -26,6 +26,34 @@ export class PuyoField {
   static readonly NUM_COLS = 6;
 
   /**
+   * フィールドの行番号の配列(周囲1マスの壁を除く)。
+   */
+  static readonly ROW_INDICES: ReadonlyArray<number> = range(1, PuyoField.NUM_ROWS + 1);
+
+  /**
+   * フィールドの列番号の配列(周囲1マスの壁を除く)。
+   */
+  static readonly COL_INDICES: ReadonlyArray<number> = range(1, PuyoField.NUM_COLS + 1);
+
+  /**
+   * フィールド上の各位置を要素とする配列(周囲1マスの壁を除く)。
+   *
+   * - 形式
+   *   - [
+   *       [ 1, 1], [ 1, 2], ..., [ 1, 6],
+   *       [ 2, 1], [ 2, 2], ..., [ 2, 6],
+   *       ...,
+   *       [13, 1], [13, 2], ..., [13, 6]
+   *     ]
+   */
+  static readonly POSITIONS: ReadonlyArray<Tuple<number>> =
+    PuyoField.ROW_INDICES.map(i =>
+      PuyoField.COL_INDICES.map(j =>
+        [i, j] as Tuple<number>
+      )
+    ).reduce((prev, curr) => prev.concat(curr));
+
+  /**
    * PuyoFieldを作成する。
    *
    * - 作成時に、フィールドのデータに周囲1マスの壁を加える(番兵)。
@@ -46,8 +74,8 @@ export class PuyoField {
   static empty(): PuyoField {
 
     const emptyData: Puyo[][] =
-      PuyoField.rowIndices().map(() =>
-        PuyoField.colIndices().map(() =>
+      PuyoField.ROW_INDICES.map(() =>
+        PuyoField.COL_INDICES.map(() =>
           Puyo.Empty
         )
       );
@@ -63,14 +91,16 @@ export class PuyoField {
    */
   private static addWalls(data: Puyo[][]): Puyo[][] {
 
+    const rowIndices = range(0, PuyoField.NUM_ROWS + 2);
+    const colIndices = range(0, PuyoField.NUM_COLS + 2);
+
     const isEdge = (i: number, j: number) => (
       i === 0 || i === PuyoField.NUM_ROWS + 1 ||
       j === 0 || j === PuyoField.NUM_COLS + 1
     );
 
-    const includesWalls = true;
-    return PuyoField.rowIndices(includesWalls).map(i =>
-        PuyoField.colIndices(includesWalls).map(j =>
+    return rowIndices.map(i =>
+        colIndices.map(j =>
           isEdge(i, j) ? Puyo.Wall : data[i - 1][j - 1]
         )
       );
@@ -83,61 +113,11 @@ export class PuyoField {
    * @returns フィールドのデータ(周囲1マスの壁を除く)
    */
   private static removeWalls(data: Puyo[][]): Puyo[][] {
-    return PuyoField.rowIndices().map(i =>
-      PuyoField.colIndices().map(j =>
+    return PuyoField.ROW_INDICES.map(i =>
+      PuyoField.COL_INDICES.map(j =>
         data[i][j]
       )
     );
-  }
-
-  /**
-   * フィールドの行番号の配列を返す。
-   *
-   * @param includesWalls 周囲1マスの壁を含む場合はtrue
-   * @returns 行番号の配列
-   */
-  static rowIndices(includesWalls: boolean = false): number[] {
-    return includesWalls ? range(0, PuyoField.NUM_ROWS + 2) : range(1, PuyoField.NUM_ROWS + 1);
-  }
-
-  /**
-   * フィールドの列番号の配列を返す。
-   *
-   * @param includesWalls 周囲1マスの壁を含む場合はtrue
-   * @returns 列番号の配列
-   */
-  static colIndices(includesWalls: boolean = false): number[] {
-    return includesWalls ? range(0, PuyoField.NUM_COLS + 2) : range(1, PuyoField.NUM_COLS + 1);
-  }
-
-  /**
-   * フィールド上の各位置を要素とする配列を作成する。
-   *
-   * - 例 (周囲1マスの壁を含まない場合)
-   *   - [
-   *       [ 1, 1], [ 1, 2], ..., [ 1, 6],
-   *       [ 2, 1], [ 2, 2], ..., [ 2, 6],
-   *       ...,
-   *       [13, 1], [13, 2], ..., [13, 6]
-   *     ]
-   *
-   * @param includesWalls 周囲1マスの壁を含む場合はtrue
-   * @returns フィールド上の各位置を要素とする配列
-   */
-  static positions(includesWalls = false): Tuple<number>[] {
-
-    const rowIndices = PuyoField.rowIndices(includesWalls);
-    const colIndices = PuyoField.colIndices(includesWalls);
-
-    const positions: Tuple<number>[] = [];
-
-    for (const i of rowIndices) {
-      for (const j of colIndices) {
-        positions.push([i, j]);
-      }
-    }
-
-    return positions;
   }
 
   /**

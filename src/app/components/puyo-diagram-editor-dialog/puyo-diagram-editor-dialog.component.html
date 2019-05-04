@@ -1,8 +1,8 @@
 <div class="editor">
 
   <div class="field">
-    <div class="row" *ngFor="let i of PuyoField.rowIndices()" [class.row-top]="i === 1">
-      <div class="puyo" *ngFor="let j of PuyoField.colIndices()" (click)="puyoDiagram.field.setPuyo([i, j], selectedPuyo);">
+    <div class="row" *ngFor="let i of PuyoField.ROW_INDICES" [class.row-top]="i === 1">
+      <div class="puyo" *ngFor="let j of PuyoField.COL_INDICES" (click)="puyoDiagram.field.setPuyo([i, j], selectedPuyo);">
         <div class="puyo-bg">
           <img src="../../../assets/images/puyos/field/{{ Puyo.nameOf(puyoDiagram.field.getPuyo([i, j])) }}.png"
             class="{{ 'puyo' + puyoDiagram.field.connectionStatusAt([i, j]) }}" />

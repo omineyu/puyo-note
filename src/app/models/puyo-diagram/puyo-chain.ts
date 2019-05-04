@@ -61,7 +61,8 @@ export class PuyoChain {
     let dropped = false;
 
     // 下のぷよから順に落下させる
-    for (const position of PuyoField.positions().reverse()) {
+    const positions = PuyoField.POSITIONS.slice().reverse();
+    for (const position of positions) {
       const puyo = this.field.getPuyo(position);
       if (Puyo.isDroppableType(puyo)) {
         dropped = this.dropPuyo(position) || dropped;
@@ -100,7 +101,7 @@ export class PuyoChain {
    */
   private uyenimo(): boolean {
 
-    const targetPositions = PuyoField.positions().filter(position => {
+    const targetPositions = PuyoField.POSITIONS.filter(position => {
       const CONNECTION_NUMBER_THRESHOLD = 4;
       const connectionNumber = this.field.calcConnectionNumber(position);
       return connectionNumber >= CONNECTION_NUMBER_THRESHOLD;
