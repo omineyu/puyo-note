@@ -35,16 +35,16 @@ export class PuyoField {
   static empty(): PuyoField {
 
     const isWall = (i: number, j: number) => (
-      i === 0 || i === this.NUM_ROWS + 1 ||
-      j === 0 || j === this.NUM_COLS + 1
+      i === 0 || i === PuyoField.NUM_ROWS + 1 ||
+      j === 0 || j === PuyoField.NUM_COLS + 1
     );
 
     const puyoAt = (i: number, j: number) => (isWall(i, j) ? Puyo.Wall : Puyo.Empty);
 
     const includesWalls = true;
     const emptyData: Puyo[][] =
-      this.rowIndices(includesWalls).map(i =>
-        this.colIndices(includesWalls).map(j =>
+      PuyoField.rowIndices(includesWalls).map(i =>
+        PuyoField.colIndices(includesWalls).map(j =>
           puyoAt(i, j)
         )
       );
@@ -59,7 +59,7 @@ export class PuyoField {
    * @returns 行番号の配列
    */
   static rowIndices(includesWalls: boolean = false): number[] {
-    return includesWalls ? range(0, this.NUM_ROWS + 2) : range(1, this.NUM_ROWS + 1);
+    return includesWalls ? range(0, PuyoField.NUM_ROWS + 2) : range(1, PuyoField.NUM_ROWS + 1);
   }
 
   /**
@@ -69,7 +69,7 @@ export class PuyoField {
    * @returns 列番号の配列
    */
   static colIndices(includesWalls: boolean = false): number[] {
-    return includesWalls ? range(0, this.NUM_COLS + 2) : range(1, this.NUM_COLS + 1);
+    return includesWalls ? range(0, PuyoField.NUM_COLS + 2) : range(1, PuyoField.NUM_COLS + 1);
   }
 
   /**
@@ -161,8 +161,8 @@ export class PuyoField {
   private static containsPosition(position: Tuple<number>): boolean {
     const [i, j] = position;
     return (
-      i >= 0 && i <= this.NUM_ROWS + 1 &&
-      j >= 0 && j <= this.NUM_COLS + 1
+      i >= 0 && i <= PuyoField.NUM_ROWS + 1 &&
+      j >= 0 && j <= PuyoField.NUM_COLS + 1
     );
   }
 
