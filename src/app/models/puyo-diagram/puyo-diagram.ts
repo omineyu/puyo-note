@@ -33,7 +33,7 @@ export class PuyoDiagram {
    * @returns PuyoDiagram
    */
   static fromRecord(record: PuyoDiagramRecord): PuyoDiagram {
-    const puyoField = new PuyoField(record.field);
+    const puyoField = PuyoField.of(record.field);
     return new PuyoDiagram(record.id, record.name, record.status, puyoField);
   }
 

@@ -11,45 +11,83 @@ import { Puyo } from 'src/app/models/puyo-diagram/puyo';
  */
 export class PuyoField {
 
-  constructor(
+  private constructor(
     private readonly data: Puyo[][]
   ) {}
 
   /**
-   * フィールドの行数(周囲1マスの壁は含まない)。
+   * フィールドの行数(周囲1マスの壁を除く)。
    */
   static readonly NUM_ROWS = 13;
 
   /**
-   * フィールドの列数(周囲1マスの壁は含まない)。
+   * フィールドの列数(周囲1マスの壁を除く)。
    */
   static readonly NUM_COLS = 6;
 
   /**
-   * 空のフィールドを作成する。
+   * PuyoFieldを作成する。
    *
-   * 周囲1マスは壁とする(番兵)。
+   * - 作成時に、フィールドのデータに周囲1マスの壁を加える(番兵)。
    *
-   * @returns 空のフィールド
+   * @param data フィールドのデータ
+   * @returns PuyoField
+   */
+  static of(data: Puyo[][]): PuyoField {
+    const walledData = PuyoField.addWalls(data);
+    return new PuyoField(walledData);
+  }
+
+  /**
+   * 空のPuyoFieldを作成する。
+   *
+   * @returns 空のPuyoField
    */
   static empty(): PuyoField {
 
-    const isWall = (i: number, j: number) => (
+    const emptyData: Puyo[][] =
+      PuyoField.rowIndices().map(() =>
+        PuyoField.colIndices().map(() =>
+          Puyo.Empty
+        )
+      );
+
+    return PuyoField.of(emptyData);
+  }
+
+  /**
+   * フィールドのデータに周囲1マスの壁を加える。
+   *
+   * @param data フィールドのデータ
+   * @returns フィールドのデータ(周囲1マスの壁を含む)
+   */
+  private static addWalls(data: Puyo[][]): Puyo[][] {
+
+    const isEdge = (i: number, j: number) => (
       i === 0 || i === PuyoField.NUM_ROWS + 1 ||
       j === 0 || j === PuyoField.NUM_COLS + 1
     );
 
-    const puyoAt = (i: number, j: number) => (isWall(i, j) ? Puyo.Wall : Puyo.Empty);
-
     const includesWalls = true;
-    const emptyData: Puyo[][] =
-      PuyoField.rowIndices(includesWalls).map(i =>
+    return PuyoField.rowIndices(includesWalls).map(i =>
         PuyoField.colIndices(includesWalls).map(j =>
-          puyoAt(i, j)
+          isEdge(i, j) ? Puyo.Wall : data[i - 1][j - 1]
         )
       );
+  }
 
-    return new PuyoField(emptyData);
+  /**
+   * フィールドのデータから周囲1マスの壁を取り除く。
+   *
+   * @param data フィールドのデータ
+   * @returns フィールドのデータ(周囲1マスの壁を除く)
+   */
+  private static removeWalls(data: Puyo[][]): Puyo[][] {
+    return PuyoField.rowIndices().map(i =>
+      PuyoField.colIndices().map(j =>
+        data[i][j]
+      )
+    );
   }
 
   /**
@@ -115,11 +153,12 @@ export class PuyoField {
   /**
    * PuyoFieldを2次元配列に変換する。
    *
+   * - 周囲1マスの壁を除く。
+   *
    * @returns PuyoFieldを表す2次元配列
    */
   toArray(): Puyo[][] {
-    const copiedData = JSON.parse(JSON.stringify(this.data));
-    return copiedData;
+    return PuyoField.removeWalls(this.data);
   }
 
   /**
