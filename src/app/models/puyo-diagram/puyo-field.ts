@@ -107,20 +107,6 @@ export class PuyoField {
   }
 
   /**
-   * フィールドのデータから周囲1マスの壁を取り除く。
-   *
-   * @param data フィールドのデータ
-   * @returns フィールドのデータ(周囲1マスの壁を除く)
-   */
-  private static removeWalls(data: Puyo[][]): Puyo[][] {
-    return PuyoField.ROW_INDICES.map(i =>
-      PuyoField.COL_INDICES.map(j =>
-        data[i][j]
-      )
-    );
-  }
-
-  /**
    * PuyoFieldをコピーする。
    *
    * @returns PuyoFieldのコピー
@@ -138,7 +124,11 @@ export class PuyoField {
    * @returns PuyoFieldを表す2次元配列
    */
   toArray(): Puyo[][] {
-    return PuyoField.removeWalls(this.data);
+    return PuyoField.ROW_INDICES.map(i =>
+      PuyoField.COL_INDICES.map(j =>
+        this.data[i][j]
+      )
+    );
   }
 
   /**
