@@ -1,8 +1,9 @@
 <div class="editor">
 
   <div class="field">
+
     <div class="row" *ngFor="let i of PuyoField.ROW_INDICES" [class.row-top]="i === 1">
-      <div class="puyo" *ngFor="let j of PuyoField.COL_INDICES" (click)="puyoDiagram.field.setPuyo([i, j], selectedPuyo);">
+      <div class="puyo" *ngFor="let j of PuyoField.COL_INDICES" (click)="onFieldClicked([i, j])">
         <div class="puyo-bg">
           <img src="../../../assets/images/puyos/field/{{ Puyo.nameOf(puyoDiagram.field.getPuyo([i, j])) }}.png"
             class="{{ 'puyo' + puyoDiagram.field.connectionStatusAt([i, j]) }}" />
@@ -10,21 +11,33 @@
         <div class="puyo-fg"></div>
       </div>
     </div>
+
   </div>
 
   <div class="palette">
+
     <button mat-icon-button class="close-button" [mat-dialog-close]="undefined" color="primary">
       <mat-icon>close</mat-icon>
     </button>
+
+    <button
+      mat-icon-button
+      class="player-button"
+      (click)="puyoDiagram.isPlaying() ? puyoDiagram.stop() : puyoDiagram.play()">
+      <mat-icon>{{ puyoDiagram.isPlaying() ? 'stop' : 'play_arrow' }}</mat-icon>
+    </button>
+
     <div *ngFor="let puyo of PALETTE_PUYOS"
       class="puyo-selector"
       [class.selected]="puyo === selectedPuyo"
-      (click)="selectedPuyo = puyo;">
+      (click)="selectedPuyo = puyo">
       <img src="../../../assets/images/puyos/palette/{{ Puyo.nameOf(puyo) }}.png" />
     </div>
+
     <button mat-icon-button class="save-button" [mat-dialog-close]="puyoDiagram" color="primary">
       <mat-icon>save</mat-icon>
     </button>
+
   </div>
 
 </div>

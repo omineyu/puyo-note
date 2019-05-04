@@ -42,6 +42,7 @@ export class PuyoDiagramListComponent implements OnInit {
   }
 
   addPuyoDiagram(puyoDiagram: PuyoDiagram): void {
+    puyoDiagram.stop();
     const addPuyoDiagram = this.puyoDiagramService.addPuyoDiagram(puyoDiagram);
     this.callAndReload(addPuyoDiagram);
   }
