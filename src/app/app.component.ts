@@ -2,6 +2,7 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 
 import { PuyoDiagramListComponent } from 'src/app/components/puyo-diagram-list/puyo-diagram-list.component';
 import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
+import { settings } from 'src/app/settings';
 import { keyValuesOfEnum } from 'src/app/utils/enum';
 
 @Component({
@@ -11,7 +12,7 @@ import { keyValuesOfEnum } from 'src/app/utils/enum';
 })
 export class AppComponent {
 
-  readonly VERSION = '0.3.0';
+  readonly settings = settings;
 
   readonly STATUSES = keyValuesOfEnum(PuyoDiagramStatus);
 

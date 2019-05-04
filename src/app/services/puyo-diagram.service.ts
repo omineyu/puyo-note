@@ -3,6 +3,7 @@ import Dexie from 'dexie';
 
 import { PuyoDiagram, PuyoDiagramRecord } from 'src/app/models/puyo-diagram/puyo-diagram';
 import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
+import { settings } from 'src/app/settings';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class PuyoDiagramService {
   }
 
   private initDb(): Dexie {
-    const db = new Dexie('PuyoNoteDatabase');
+    const db = new Dexie(settings.DATABASE_NAME);
     db.version(1).stores({
       puyoDiagrams: '++id, name, status, field'
     });

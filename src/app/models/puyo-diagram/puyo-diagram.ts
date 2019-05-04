@@ -2,6 +2,7 @@ import { Puyo } from 'src/app/models/puyo-diagram/puyo';
 import { PuyoChain } from 'src/app/models/puyo-diagram/puyo-chain';
 import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
 import { PuyoField } from 'src/app/models/puyo-diagram/puyo-field';
+import { settings } from 'src/app/settings';
 
 /**
  * ぷよ図。
@@ -95,8 +96,7 @@ export class PuyoDiagram {
 
     this.field = puyoChain.getField();
 
-    const STEP_INTERVAL_MS = 500;
-    setTimeout(() => this.playLoop(), STEP_INTERVAL_MS);
+    setTimeout(() => this.playLoop(), settings.CHAIN_ANIMATION_INTERVAL_MS);
   }
 
   /**

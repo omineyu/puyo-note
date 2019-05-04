@@ -2,13 +2,13 @@
 
   <header class="header">
     <div class="logo">
-      ぷよのーと
-      <span class="version">{{ VERSION }}</span>
+      {{ settings.APP_NAME }}
+      <span class="version">{{ settings.APP_VERSION }}</span>
     </div>
   </header>
 
   <div class="warning">
-    注: ぷよのーとは、現在開発中です。ご利用は自己責任でお願いします。
+    注: {{ settings.APP_NAME }}は、現在開発中です。ご利用は自己責任でお願いします。
   </div>
 
   <mat-tab-group class="puyo-diagram-lists" mat-align-tabs="center" (selectedTabChange)="reloadAll()">
