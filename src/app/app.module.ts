@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { DeviceDetectorModule } from 'ngx-device-detector';
+
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { PuyoDiagramEditorDialogComponent } from 'src/app/components/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
@@ -23,6 +25,7 @@ import { PuyoDiagramComponent } from 'src/app/components/puyo-diagram/puyo-diagr
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    DeviceDetectorModule.forRoot(),
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
