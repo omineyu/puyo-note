@@ -70,7 +70,7 @@ export class PuyoDiagramListComponent implements OnInit {
 
   openCreateDialog(): void {
     const emptyDiagram = new PuyoDiagram(undefined, '', this.status);
-    const dialogConfig = {data: emptyDiagram, autoFocus: false};
+    const dialogConfig = {data: emptyDiagram, autoFocus: false, disableClose: true};
     const dialogRef = this.dialog.open(PuyoDiagramEditorDialogComponent, dialogConfig);
     const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { this.addPuyoDiagram(diagram); } };
     dialogRef.afterClosed().subscribe(afterClosed);
@@ -78,7 +78,7 @@ export class PuyoDiagramListComponent implements OnInit {
 
   openUpdateDialog(puyoDiagram: PuyoDiagram): void {
     puyoDiagram.stop();
-    const dialogConfig = {data: puyoDiagram, autoFocus: false};
+    const dialogConfig = {data: puyoDiagram, autoFocus: false, disableClose: true};
     const dialogRef = this.dialog.open(PuyoDiagramEditorDialogComponent, dialogConfig);
     const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { this.updatePuyoDiagram(diagram); } };
     dialogRef.afterClosed().subscribe(afterClosed);
