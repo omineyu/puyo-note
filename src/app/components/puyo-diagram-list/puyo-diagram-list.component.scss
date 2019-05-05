@@ -66,7 +66,18 @@
 }
 
 .no-puyo-diagrams {
-  padding: 250px;
+
+  // 中央寄せ
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  .add-button-sample {
+    @include mat-elevation(2);
+    margin: 0 5px 0 5px;
+  }
+
 }
 
 .spinner-wrapper {
