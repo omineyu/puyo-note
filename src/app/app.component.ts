@@ -1,7 +1,8 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 
-import { DeviceDetectorService, BROWSERS } from 'ngx-device-detector';
+import { BROWSERS, DeviceDetectorService } from 'ngx-device-detector';
 
 import { PuyoDiagramListComponent } from 'src/app/components/puyo-diagram-list/puyo-diagram-list.component';
 import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
@@ -38,9 +39,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // TODO 全部をリロードするのはムダ
-  reloadAll(): void {
-    this.puyoDiagramListComponents.forEach(component => component.getPuyoDiagrams());
+  reloadTab(event: MatTabChangeEvent): void {
+    const status = this.STATUSES[event.index].value;
+    this.puyoDiagramListComponents
+      .filter(component => component.status === status)
+      .forEach(component => component.getPuyoDiagrams());
   }
 
 }

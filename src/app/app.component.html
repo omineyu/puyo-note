@@ -11,7 +11,7 @@
     注: {{ settings.APP_NAME }}は、現在開発中です。ご利用は自己責任でお願いします。
   </div>
 
-  <mat-tab-group class="puyo-diagram-lists" mat-align-tabs="center" (selectedTabChange)="reloadAll()">
+  <mat-tab-group class="puyo-diagram-lists" mat-align-tabs="center" (selectedTabChange)="reloadTab($event)">
     <ng-container *ngFor="let status of STATUSES">
       <mat-tab>
         <ng-template mat-tab-label>{{ status.value }}. {{ status.key }}</ng-template>
