@@ -42,19 +42,16 @@ export class PuyoDiagramListComponent implements OnInit {
   }
 
   addPuyoDiagram(puyoDiagram: PuyoDiagram): void {
-    puyoDiagram.stop();
     const addPuyoDiagram = this.puyoDiagramService.addPuyoDiagram(puyoDiagram);
     this.callAndReload(addPuyoDiagram);
   }
 
   updatePuyoDiagram(puyoDiagram: PuyoDiagram): void {
-    puyoDiagram.stop();
     const updatePuyoDiagram = this.puyoDiagramService.updatePuyoDiagram(puyoDiagram);
     this.callAndReload(updatePuyoDiagram);
   }
 
   deletePuyoDiagram(puyoDiagram: PuyoDiagram): void {
-    puyoDiagram.stop();
     const deletePuyoDiagram = this.puyoDiagramService.deletePuyoDiagram(puyoDiagram);
     this.callAndReload(deletePuyoDiagram);
   }
@@ -69,27 +66,35 @@ export class PuyoDiagramListComponent implements OnInit {
   }
 
   openCreateDialog(): void {
+    this.stopPuyoDiagrams();
     const emptyDiagram = new PuyoDiagram(undefined, '', this.status);
     const dialogConfig = {data: emptyDiagram, autoFocus: false, disableClose: true};
     const dialogRef = this.dialog.open(PuyoDiagramEditorDialogComponent, dialogConfig);
-    const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { this.addPuyoDiagram(diagram); } };
+    const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { diagram.stop(); this.addPuyoDiagram(diagram); } };
     dialogRef.afterClosed().subscribe(afterClosed);
   }
 
   openUpdateDialog(puyoDiagram: PuyoDiagram): void {
-    puyoDiagram.stop();
+    this.stopPuyoDiagrams();
     const dialogConfig = {data: puyoDiagram, autoFocus: false, disableClose: true};
     const dialogRef = this.dialog.open(PuyoDiagramEditorDialogComponent, dialogConfig);
-    const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { this.updatePuyoDiagram(diagram); } };
+    const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { diagram.stop(); this.updatePuyoDiagram(diagram); } };
     dialogRef.afterClosed().subscribe(afterClosed);
   }
 
   openDeleteDialog(puyoDiagram: PuyoDiagram): void {
-    puyoDiagram.stop();
+    this.stopPuyoDiagrams();
     const dialogConfig = {data: puyoDiagram};
     const dialogRef = this.dialog.open(PuyoDiagramDeleteDialogComponent, dialogConfig);
     const afterClosed = (diagram?: PuyoDiagram) => { if (diagram) { this.deletePuyoDiagram(diagram); } };
     dialogRef.afterClosed().subscribe(afterClosed);
+  }
+
+  private stopPuyoDiagrams(): void {
+    if (this.puyoDiagrams === undefined) { return; }
+    for (const diagram of this.puyoDiagrams) {
+      diagram.stop();
+    }
   }
 
   private handleError(error: Error): void {
