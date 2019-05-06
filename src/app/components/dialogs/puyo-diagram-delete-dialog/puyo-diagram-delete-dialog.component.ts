@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
@@ -8,12 +8,10 @@ import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
   templateUrl: './puyo-diagram-delete-dialog.component.html',
   styleUrls: ['./puyo-diagram-delete-dialog.component.scss']
 })
-export class PuyoDiagramDeleteDialogComponent implements OnInit {
+export class PuyoDiagramDeleteDialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public puyoDiagram: PuyoDiagram
   ) {}
-
-  ngOnInit() {}
 
 }

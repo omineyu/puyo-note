@@ -10,7 +10,7 @@ import { PuyoField } from 'src/app/models/puyo-diagram/puyo-field';
   styleUrls: ['./puyo-diagram.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PuyoDiagramComponent implements OnInit {
+export class PuyoDiagramComponent {
 
   readonly Puyo = Puyo;
   readonly PuyoField = PuyoField;
@@ -19,6 +19,5 @@ export class PuyoDiagramComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
 
 }

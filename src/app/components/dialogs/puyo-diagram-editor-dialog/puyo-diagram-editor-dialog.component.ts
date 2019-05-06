@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { Puyo } from 'src/app/models/puyo-diagram/puyo';
@@ -11,7 +11,7 @@ import { Tuple } from 'src/app/utils/types';
   templateUrl: './puyo-diagram-editor-dialog.component.html',
   styleUrls: ['./puyo-diagram-editor-dialog.component.scss']
 })
-export class PuyoDiagramEditorDialogComponent implements OnInit {
+export class PuyoDiagramEditorDialogComponent {
 
   readonly Puyo = Puyo;
   readonly PuyoField = PuyoField;
@@ -30,8 +30,6 @@ export class PuyoDiagramEditorDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public puyoDiagram: PuyoDiagram) {
     this.puyoDiagram = puyoDiagram.copy();
   }
-
-  ngOnInit() {}
 
   onFieldClicked(position: Tuple<number>): void {
 
