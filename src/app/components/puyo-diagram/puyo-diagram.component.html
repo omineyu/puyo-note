@@ -1,12 +1,12 @@
-<div class="diagram">
-
-  <div class="field">
-    <div class="row" *ngFor="let i of PuyoField.ROW_INDICES" [class.row-top]="i === 1">
-      <div class="puyo" *ngFor="let j of PuyoField.COL_INDICES">
+<div class="field">
+  <div class="row" *ngFor="let i of PuyoField.ROW_INDICES" [class.row-top]="i === 1">
+    <div class="puyo" *ngFor="let j of PuyoField.COL_INDICES" (click)="click([i, j])">
+      <div class="puyo-img">
         <img src="../../../assets/images/puyos/field/{{ Puyo.nameOf(puyoDiagram.field.getPuyo([i, j])) }}.png"
           class="{{ 'puyo' + puyoDiagram.field.connectionStatusAt([i, j]) }}" />
       </div>
+      <div class="cursor-on-hover" *ngIf="showCursor"></div>
     </div>
   </div>
-
 </div>
+  

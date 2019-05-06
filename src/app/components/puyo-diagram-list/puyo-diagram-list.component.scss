@@ -61,6 +61,7 @@
 
   .puyo-diagram:hover {
     @include mat-elevation(4, #000000);
+    cursor: pointer;
   }
 
 }

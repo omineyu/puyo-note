@@ -31,7 +31,7 @@ export class PuyoDiagramEditorDialogComponent {
     this.puyoDiagram = puyoDiagram.copy();
   }
 
-  onFieldClicked(position: Tuple<number>): void {
+  drawPuyo(position: Tuple<number>): void {
 
     // ぷよ図の再生中は編集不可
     if (this.puyoDiagram.isPlaying()) { return; }

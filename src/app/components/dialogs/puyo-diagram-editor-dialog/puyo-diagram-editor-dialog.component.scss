@@ -1,7 +1,5 @@
 @import '~@angular/material/theming';
 
-@import 'src/app/components/puyo-diagram/puyo-diagram';
-
 * {
   user-select: none;
 }
@@ -11,27 +9,9 @@
   margin: 0 0 0 8px;
 }
 
-.field {
+.diagram {
   @include mat-elevation(4, #aaaaaa);
-}
-
-.puyo {
-
-  .puyo-bg {
-    position: absolute;
-  }
-
-  .puyo-fg {
-    position: absolute;
-    width: $puyo-size;
-    height: $puyo-size;
-  }
-
-  .puyo-fg:hover {
-    background-color: red;
-    background: url('src/assets/images/puyos/palette/selected.png');
-  }
-
+  cursor: pointer;
 }
 
 .palette {
