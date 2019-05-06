@@ -1,0 +1,8 @@
+<mat-tab-group class="puyo-diagram-lists" mat-align-tabs="center" (selectedTabChange)="reloadTabContent($event)">
+  <ng-container *ngFor="let status of STATUSES">
+    <mat-tab>
+      <ng-template mat-tab-label>{{ status.value }}. {{ status.key }}</ng-template>
+      <app-puyo-diagram-list [status]="status.value"></app-puyo-diagram-list>
+    </mat-tab>
+  </ng-container>
+</mat-tab-group>

@@ -18,6 +18,7 @@ import { AppComponent } from 'src/app/app.component';
 import { PuyoDiagramEditorDialogComponent } from 'src/app/components/dialogs/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
 import { PuyoDiagramDeleteDialogComponent } from 'src/app/components/dialogs/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
 import { PuyoDiagramListComponent } from 'src/app/components/puyo-diagram-list/puyo-diagram-list.component';
+import { PuyoDiagramListsComponent } from './components/puyo-diagram-lists/puyo-diagram-lists.component';
 import { PuyoDiagramComponent } from 'src/app/components/puyo-diagram/puyo-diagram.component';
 
 @NgModule({
@@ -41,6 +42,7 @@ import { PuyoDiagramComponent } from 'src/app/components/puyo-diagram/puyo-diagr
     PuyoDiagramDeleteDialogComponent,
     PuyoDiagramEditorDialogComponent,
     PuyoDiagramListComponent,
+    PuyoDiagramListsComponent,
   ],
   entryComponents: [
     PuyoDiagramEditorDialogComponent,
