@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Source+Code+Pro');
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   margin: 0;

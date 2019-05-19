@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
 
 import { keyValuesOfEnum } from 'src/app/utils/enum';
@@ -14,15 +14,14 @@ export class PuyoDiagramListsComponent {
 
   readonly STATUSES = keyValuesOfEnum(PuyoDiagramStatus);
 
-  @ViewChildren(PuyoDiagramListComponent) private puyoDiagramListComponents!: QueryList<PuyoDiagramListComponent>;
+  status = PuyoDiagramStatus.ToDo;
 
-  constructor() {}
+  @ViewChild(PuyoDiagramListComponent) private puyoDiagramListComponent!: PuyoDiagramListComponent;
 
-  reloadTabContent(event: MatTabChangeEvent): void {
+  changeTab(event: MatTabChangeEvent): void {
     const status = this.STATUSES[event.index].value;
-    this.puyoDiagramListComponents
-      .filter(component => component.status === status)
-      .forEach(component => component.getPuyoDiagrams());
+    this.puyoDiagramListComponent.status = status;
+    this.puyoDiagramListComponent.getPuyoDiagrams();
   }
 
 }
