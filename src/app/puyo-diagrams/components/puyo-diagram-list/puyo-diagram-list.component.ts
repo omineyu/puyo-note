@@ -3,12 +3,12 @@ import { OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 
-import { PuyoDiagramDeleteDialogComponent } from 'src/app/components/dialogs/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
-import { PuyoDiagramEditorDialogComponent } from 'src/app/components/dialogs/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
-import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
-import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
-import { PuyoDiagramService } from 'src/app/services/puyo-diagram.service';
 import { keyValuesOfEnum } from 'src/app/utils/enum';
+import { PuyoDiagram } from '../../models/puyo-diagram';
+import { PuyoDiagramStatus } from '../../models/puyo-diagram-status';
+import { PuyoDiagramService } from '../../services/puyo-diagram.service';
+import { PuyoDiagramDeleteDialogComponent } from '../dialogs/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
+import { PuyoDiagramEditorDialogComponent } from '../dialogs/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
 
 @Component({
   selector: 'app-puyo-diagram-list',

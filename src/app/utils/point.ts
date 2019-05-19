@@ -1,4 +1,4 @@
-import { Tuple } from 'src/app/utils/types';
+import { Tuple } from './types';
 
 /**
  * 平面上の格子点に隣接する4つの格子点を返す。

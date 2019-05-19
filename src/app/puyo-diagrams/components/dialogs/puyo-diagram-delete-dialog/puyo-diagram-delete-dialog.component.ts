@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
+import { PuyoDiagram } from '../../../models/puyo-diagram';
 
 @Component({
   selector: 'app-puyo-diagram-delete-dialog',

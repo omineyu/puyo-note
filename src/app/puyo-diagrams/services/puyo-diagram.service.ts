@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 
-import { PuyoDiagram, PuyoDiagramRecord } from 'src/app/models/puyo-diagram/puyo-diagram';
-import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
 import { settings } from 'src/app/settings';
+import { PuyoDiagram, PuyoDiagramRecord } from '../models/puyo-diagram';
+import { PuyoDiagramStatus } from '../models/puyo-diagram-status';
 
 @Injectable({
   providedIn: 'root'

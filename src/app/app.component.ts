@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import { BROWSERS, DeviceDetectorService } from 'ngx-device-detector';
 
-import { settings } from 'src/app/settings';
+import { settings } from './settings';
 
 @Component({
   selector: 'app-root',

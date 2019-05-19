@@ -1,8 +1,8 @@
-import { Puyo } from 'src/app/models/puyo-diagram/puyo';
-import { PuyoChain } from 'src/app/models/puyo-diagram/puyo-chain';
-import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
-import { PuyoField } from 'src/app/models/puyo-diagram/puyo-field';
 import { settings } from 'src/app/settings';
+import { Puyo } from './puyo';
+import { PuyoChain } from './puyo-chain';
+import { PuyoDiagramStatus } from './puyo-diagram-status';
+import { PuyoField } from './puyo-field';
 
 /**
  * ぷよ図。

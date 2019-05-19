@@ -1,8 +1,8 @@
 import { adjacentPointsOf } from 'src/app/utils/point';
 import { Tuple } from 'src/app/utils/types';
 
-import { Puyo } from 'src/app/models/puyo-diagram/puyo';
-import { PuyoField } from 'src/app/models/puyo-diagram/puyo-field';
+import { Puyo } from './puyo';
+import { PuyoField } from './puyo-field';
 
 /**
  * ぷよぷよの連鎖。

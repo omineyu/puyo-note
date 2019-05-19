@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { Puyo } from 'src/app/models/puyo-diagram/puyo';
-import { PuyoDiagram } from 'src/app/models/puyo-diagram/puyo-diagram';
-import { PuyoField } from 'src/app/models/puyo-diagram/puyo-field';
 import { Tuple } from 'src/app/utils/types';
+import { Puyo } from '../../../models/puyo';
+import { PuyoDiagram } from '../../../models/puyo-diagram';
+import { PuyoField } from '../../../models/puyo-field';
 
 @Component({
   selector: 'app-puyo-diagram-editor-dialog',

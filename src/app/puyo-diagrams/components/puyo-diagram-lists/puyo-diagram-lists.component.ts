@@ -1,9 +1,9 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
 
-import { PuyoDiagramListComponent } from 'src/app/components/puyo-diagram-list/puyo-diagram-list.component';
-import { PuyoDiagramStatus } from 'src/app/models/puyo-diagram/puyo-diagram-status';
 import { keyValuesOfEnum } from 'src/app/utils/enum';
+import { PuyoDiagramStatus } from '../../models/puyo-diagram-status';
+import { PuyoDiagramListComponent } from '../puyo-diagram-list/puyo-diagram-list.component';
 
 @Component({
   selector: 'app-puyo-diagram-lists',

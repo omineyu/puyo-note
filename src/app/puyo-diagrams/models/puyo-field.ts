@@ -2,7 +2,7 @@ import { adjacentPointsOf } from 'src/app/utils/point';
 import { range } from 'src/app/utils/range';
 import { Tuple } from 'src/app/utils/types';
 
-import { Puyo } from 'src/app/models/puyo-diagram/puyo';
+import { Puyo } from './puyo';
 
 /**
  * ぷよぷよのフィールド。
