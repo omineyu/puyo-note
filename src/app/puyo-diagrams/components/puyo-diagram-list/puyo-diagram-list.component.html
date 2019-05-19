@@ -12,7 +12,7 @@
         <button
           mat-icon-button
           class="player-button"
-          (click)="puyoDiagram.isPlaying() ? puyoDiagram.stop() : puyoDiagram.play()">
+          (click)="stopPuyoDiagrams(); puyoDiagram.isPlaying() ? puyoDiagram.stop() : puyoDiagram.play()">
           <mat-icon>{{ puyoDiagram.isPlaying() ? 'stop' : 'play_arrow' }}</mat-icon>
         </button>
 
