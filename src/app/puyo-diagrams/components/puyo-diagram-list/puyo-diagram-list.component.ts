@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar, PageEvent } from '@angular/material';
 
 import { keyValuesOfEnum } from 'src/app/utils/enum';
 import { PuyoDiagram } from '../../models/puyo-diagram';
@@ -23,6 +22,10 @@ export class PuyoDiagramListComponent implements OnInit {
 
   puyoDiagrams?: PuyoDiagram[];
 
+  numPuyoDiagrams = 0;
+  numPuyoDiagramsPerPage = 8;
+  pageIndex = 0;
+
   constructor(
     private puyoDiagramService: PuyoDiagramService,
     private dialog: MatDialog,
@@ -34,8 +37,20 @@ export class PuyoDiagramListComponent implements OnInit {
   }
 
   getPuyoDiagrams(): void {
-    this.puyoDiagramService.getPuyoDiagrams(this.status).then(
-      puyoDiagrams => this.puyoDiagrams = puyoDiagrams,
+
+    const getPuyoDiagrams = this.puyoDiagramService.getPuyoDiagrams(
+      this.status, this.pageIndex * this.numPuyoDiagramsPerPage, this.numPuyoDiagramsPerPage
+    );
+
+    const getNumPuyoDiagrams = this.puyoDiagramService.getNumPuyoDiagrams(this.status);
+
+    Promise.all(
+      [getPuyoDiagrams, getNumPuyoDiagrams]
+    ).then(
+      ([puyoDiagrams, numPuyoDiagrams]) => {
+        this.puyoDiagrams = puyoDiagrams;
+        this.numPuyoDiagrams = numPuyoDiagrams;
+      }
     ).catch(
       error => this.handleError(error)
     );
@@ -99,6 +114,12 @@ export class PuyoDiagramListComponent implements OnInit {
 
   private handleError(error: Error): void {
     this.snackBar.open(String(error), '閉じる');
+  }
+
+  changePage(pageEvent: PageEvent): void {
+    this.numPuyoDiagramsPerPage = pageEvent.pageSize;
+    this.pageIndex = pageEvent.pageIndex;
+    this.getPuyoDiagrams();
   }
 
 }

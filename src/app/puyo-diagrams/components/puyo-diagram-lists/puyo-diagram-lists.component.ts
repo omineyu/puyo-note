@@ -21,6 +21,7 @@ export class PuyoDiagramListsComponent {
   changeTab(event: MatTabChangeEvent): void {
     const status = this.STATUSES[event.index].value;
     this.puyoDiagramListComponent.status = status;
+    this.puyoDiagramListComponent.pageIndex = 0;
     this.puyoDiagramListComponent.getPuyoDiagrams();
   }
 

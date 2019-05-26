@@ -24,13 +24,21 @@ export class PuyoDiagramService {
     return db;
   }
 
-  async getPuyoDiagrams(status: PuyoDiagramStatus): Promise<PuyoDiagram[]> {
+  async getPuyoDiagrams(status: PuyoDiagramStatus, offset: number, limit: number): Promise<PuyoDiagram[]> {
     return (this.db as any).puyoDiagrams
       .where('status').equals(status)
-      .toArray((diagrams: PuyoDiagramRecord[]) => diagrams
-        .reverse() // 古い順から新しい順に並び替える
-        .map(PuyoDiagram.fromRecord)
+      .reverse() // 古い順から新しい順に並び替える
+      .offset(offset)
+      .limit(limit)
+      .toArray((diagrams: PuyoDiagramRecord[]) =>
+        diagrams.map(PuyoDiagram.fromRecord)
       );
+  }
+
+  async getNumPuyoDiagrams(status: PuyoDiagramStatus): Promise<number> {
+    return (this.db as any).puyoDiagrams
+      .where('status').equals(status)
+      .count();
   }
 
   async addPuyoDiagram(puyoDiagram: PuyoDiagram): Promise<void> {

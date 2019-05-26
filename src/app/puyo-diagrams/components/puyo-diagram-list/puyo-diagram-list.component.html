@@ -4,7 +4,7 @@
     <mat-icon>add</mat-icon>
   </button>
 
-  <div class="puyo-diagram-list" *ngIf="puyoDiagrams.length > 0; else no_puyo_diagrams">
+  <div class="puyo-diagram-list" *ngIf="numPuyoDiagrams > 0; else no_puyo_diagrams">
     <div *ngFor="let puyoDiagram of puyoDiagrams" class="puyo-diagram-wrapper">
 
       <div class="tool-bar">
@@ -41,6 +41,17 @@
       </div>
 
     </div>
+
+  </div>
+
+  <div class="paginator" *ngIf="numPuyoDiagrams > 0">
+    <mat-paginator
+      [length]="numPuyoDiagrams"
+      [pageIndex]="pageIndex"
+      [pageSize]="numPuyoDiagramsPerPage"
+      [pageSizeOptions]="[4, 8, 12]"
+      (page)="changePage($event)">
+    </mat-paginator>
   </div>
 
 </div>
