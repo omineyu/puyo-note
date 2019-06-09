@@ -1,12 +1,12 @@
 <div class="puyo-note">
 
   <header class="header">
-    <div class="title-and-buttons">
-      <div class="title">
+    <div class="header-left-and-right">
+      <div class="header-left">
         <a routerLink="">{{ settings.APP_NAME }}</a>
-        <span class="version">{{ settings.APP_VERSION }}</span>
       </div>
-      <div class="button">
+      <div class="header-right">
+        <span class="version">v{{ settings.APP_VERSION }}</span>
         <button mat-icon-button routerLink="manual" color="accent" matTooltip="マニュアル">
           <mat-icon >help</mat-icon>
         </button>

@@ -14,7 +14,7 @@
   @include mat-elevation(3);
 }
 
-.title-and-buttons {
+.header-left-and-right {
   width: 1216px;
   height: 60px;
   margin: 0 auto 0 auto;
@@ -23,7 +23,7 @@
   justify-content: space-between;
 }
 
-.title {
+.header-left {
   font-size: 120%;
   color: #ffffff;
   a {
@@ -35,13 +35,15 @@
   }
 }
 
-.button {
+.header-right {
   margin: -5px 0 0 0;
 }
 
 .version {
-  padding: 0 0 0 5px;
-  font-size: 93%;
+  vertical-align: middle;
+  margin: 0 4px 0 0;
+  color: #ffffff;
+  font-size: 95%;
 }
 
 .warning {
