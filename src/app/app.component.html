@@ -10,6 +10,15 @@
         <button mat-icon-button routerLink="manual" color="accent" matTooltip="マニュアル">
           <mat-icon >help</mat-icon>
         </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" color="accent" matTooltip="その他">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a href="3rdpartylicenses.txt" mat-menu-item>
+            <mat-icon>notes</mat-icon>
+            <span>サードパーティライセンス</span>
+          </a>
+        </mat-menu>
       </div>
     </div>
   </header>
