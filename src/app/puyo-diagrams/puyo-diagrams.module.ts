@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +11,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { AppRoutingModule } from '../app-routing.module';
 import { PuyoDiagramDeleteDialogComponent } from './components/dialogs/puyo-diagram-delete-dialog/puyo-diagram-delete-dialog.component';
 import { PuyoDiagramEditorDialogComponent } from './components/dialogs/puyo-diagram-editor-dialog/puyo-diagram-editor-dialog.component';
 import { PuyoDiagramListComponent } from './components/puyo-diagram-list/puyo-diagram-list.component';
@@ -35,6 +36,7 @@ import { PuyoDiagramComponent } from './components/puyo-diagram/puyo-diagram.com
     PuyoDiagramListsComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     MatButtonModule,

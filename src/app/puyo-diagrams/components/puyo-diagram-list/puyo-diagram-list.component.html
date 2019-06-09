@@ -63,11 +63,18 @@
 </ng-template>
 
 <ng-template #no_puyo_diagrams>
-  <span class="no-puyo-diagrams">
-    ぷよ図を作成するには、左上の
-    <button mat-mini-fab class="add-button-sample" disableRipple>
-      <mat-icon>add</mat-icon>
-    </button>
-    を押してください。
-  </span>
+  <div class="no-puyo-diagrams">
+    <p>
+      ぷよ図を作成するには、左上の
+      <button mat-mini-fab class="add-button-sample" disableRipple>
+        <mat-icon>add</mat-icon>
+      </button>
+      を押してください。
+    </p>
+    <ul>
+      <li>ぷよ図はブラウザに保存されます。</li>
+      <li>ぷよのーとの使い方は <a routerLink="manual">こちら</a></li>
+      <li>ぷよのーとのご利用は自己責任で！</li>
+    </ul>
+  </div>
 </ng-template>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Tuple } from 'src/app/utils/types';
 import { Puyo } from '../../models/puyo';
@@ -9,7 +9,6 @@ import { PuyoField } from '../../models/puyo-field';
   selector: 'app-puyo-diagram',
   templateUrl: './puyo-diagram.component.html',
   styleUrls: ['./puyo-diagram.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class PuyoDiagramComponent {
 

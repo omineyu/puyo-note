@@ -1,0 +1,106 @@
+<div class="manual">
+
+<!-- TODO: パンくずリスト共通化 -->
+<div class="breadcrumbs">
+  <a routerLink="">ぷよのーと</a> &gt; ぷよのーとマニュアル
+</div>
+
+<h1>ぷよのーとマニュアル</h1>
+
+<ul>
+  <li><a href="manual#abstract">概要</a></li>
+  <li><a href="manual#create">ぷよ図の作成</a></li>
+  <li><a href="manual#edit">ぷよ図の編集</a></li>
+  <li><a href="manual#delete">ぷよ図の削除</a></li>
+  <li><a href="manual#play">ぷよ図の再生</a></li>
+  <li><a href="manual#status">ぷよ図ステータス管理</a></li>
+</ul>
+
+<a name="abstract"></a>
+<h2>概要</h2>
+
+<p>
+  ぷよのーとは、ぷよ図(ぷよぷよの連鎖の図)を管理できるWebサイトです。<br />
+  ぷよのーとの目的は、ぷよぷよの連鎖のレパートリーを増やすことです(が、使い方は自由です)。
+</p>
+<ul>
+  <li>ぷよ図は、ToDo(未習得)、Doing(習得中)、Done(習得済)の3つに分類できます。</li>
+  <li>ぷよ図を再生し、連鎖をシミュレートすることができます。</li>
+  <li>ぷよ図はWebブラウザに保存されます。</li>
+</ul>
+<div class="image">
+  <img src="../../../assets/images/manual/note.png" width="900px" />
+  <div class="image-title">ぷよのーと</div>
+</div>
+
+<a name="create"></a>
+<h2>ぷよ図の作成</h2>
+
+<p>
+  ぷよ図を作成するには
+  <button mat-mini-fab class="add-button-sample" disableRipple>
+    <mat-icon>add</mat-icon>
+  </button>
+  を押します。
+</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_create.png" width="900px" />
+</div>
+<p>以下のようなエディターがポップアップで表示され、ぷよ図を編集/保存できます。</p>
+<div class="image">
+  <img src="../../../assets/images/manual/editor.png" />
+</div>
+
+<a name="edit"></a>
+<h2>ぷよ図の編集</h2>
+
+<p>作成したぷよ図を編集するには、対象のぷよ図をクリックし、再度エディターを開きます。</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_hover_edit.png" width="900px" />
+</div>
+
+<a name="delete"></a>
+<h2>ぷよ図の削除</h2>
+
+<p>
+  ぷよ図を削除するには、対象のぷよ図にカーソルを乗せ
+  <span class="delete-button-sample">
+    <mat-icon>delete</mat-icon>
+  </span>
+  をクリックします。
+</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_hover_delete.png" width="900px" />
+</div>
+
+<a name="play"></a>
+<h2>ぷよ図の再生</h2>
+
+<p>
+  ぷよ図を再生するには
+  <span class="play-button-sample">
+    <mat-icon>play_arrow</mat-icon>
+  </span>
+  をクリックします(以下のどちらでも可)。
+</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_hover_play.png" width="900px" />
+</div>
+<div class="image">
+  <img src="../../../assets/images/manual/editor_play.png" />
+</div>
+
+<a name="status"></a>
+<h2 #status>ぷよ図ステータス管理</h2>
+
+<p>ぷよ図のステータスには、ToDo(未習得)、Doing(習得中)、Done(習得済)の3つがあります。</p>
+<p>ステータスを変更するには、対象のぷよ図にカーソルを乗せ、ステータスの選択欄をクリックします。</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_hover_status.png" width="900px" />
+</div>
+<p>表示するぷよ図のステータスを変更するには、上部のタブをクリックします。</p>
+<div class="image">
+  <img src="../../../assets/images/manual/note_tabs.png" width="900px" />
+</div>
+
+</div>

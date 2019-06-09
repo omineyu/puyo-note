@@ -1,9 +1,5 @@
 @import '~@angular/material/theming';
 
-* {
-  user-select: none;
-}
-
 .puyo-note {
   position: relative;
   min-height: 100vh;
@@ -18,13 +14,29 @@
   @include mat-elevation(3);
 }
 
-.logo {
+.title-and-buttons {
   width: 1216px;
   height: 60px;
   margin: 0 auto 0 auto;
   padding: 15px 0 0 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
   font-size: 120%;
   color: #ffffff;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.button {
+  margin: -5px 0 0 0;
 }
 
 .version {

@@ -2,7 +2,8 @@ $puyo-size: 32px;
 
 .field {
 
-  position: relative;
+  user-select: none;
+
   border: 1px solid #cccccc;
   padding: 5px 0 5px 0;
   background-color: white;
@@ -65,6 +66,3 @@ $puyo-size: 32px;
 .puyo0111 { @include puyo(2, 3) }
 .puyo1111 { @include puyo(2, 2) }
 
-img {
-  display: block;
-}

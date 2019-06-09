@@ -1,0 +1,55 @@
+@import '~@angular/material/theming';
+
+a {
+  color: #0000ff;
+}
+
+h1 {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 30px 0 0 0;
+  font-size: 130%;
+  font-weight: bold;
+}
+
+.manual {
+  width: 1190px;
+  margin: 20px auto 0 auto;
+}
+
+.breadcrumbs {
+  margin: 0 0 30px 0;
+}
+
+.image {
+  margin: 20px 0 0 0;
+  text-align: center;
+  img {
+    border: 1px solid #000000;
+  }
+  .image-title {
+    margin: 10px 0 0 0;
+  }
+}
+
+.add-button-sample {
+  @include mat-elevation(2);
+  margin: 0 5px 0 5px;
+}
+
+.delete-button-sample {
+  display: inline-block;
+  margin: 3px 0 0 1px;
+  vertical-align: middle;
+  color: #cccccc;
+}
+
+.play-button-sample {
+  display: inline-block;
+  margin: 3px 0 0 1px;
+  vertical-align: middle;
+  color: #297bff;
+}

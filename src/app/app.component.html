@@ -1,9 +1,16 @@
 <div class="puyo-note">
 
   <header class="header">
-    <div class="logo">
-      {{ settings.APP_NAME }}
-      <span class="version">{{ settings.APP_VERSION }}</span>
+    <div class="title-and-buttons">
+      <div class="title">
+        <a routerLink="">{{ settings.APP_NAME }}</a>
+        <span class="version">{{ settings.APP_VERSION }}</span>
+      </div>
+      <div class="button">
+        <button mat-icon-button routerLink="manual" color="accent" matTooltip="マニュアル">
+          <mat-icon >help</mat-icon>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -11,7 +18,7 @@
     注: {{ settings.APP_NAME }}は、現在開発中です。ご利用は自己責任でお願いします。
   </div>
 
-  <app-puyo-diagram-lists></app-puyo-diagram-lists>
+  <router-outlet></router-outlet>
 
   <!-- <footer class="footer"></footer> -->
 
