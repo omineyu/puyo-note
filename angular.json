@@ -46,7 +46,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/my-theme.scss"
+              "src/puyo-note-theme.scss"
             ],
             "scripts": []
           },

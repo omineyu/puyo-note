@@ -35,10 +35,10 @@ $mat-custom: (
   )
 );
 
-$candy-app-primary: mat-palette($mat-custom);
-$candy-app-accent:  mat-palette($mat-custom, A200, A100, A400);
-$candy-app-warn:    mat-palette($mat-red);
+$puyo-note-primary: mat-palette($mat-custom);
+$puyo-note-accent:  mat-palette($mat-custom, A200, A100, A400);
+$puyo-note-warn:    mat-palette($mat-red);
 
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$puyo-note-theme: mat-light-theme($puyo-note-primary, $puyo-note-accent, $puyo-note-warn);
 
-@include angular-material-theme($candy-app-theme);
+@include angular-material-theme($puyo-note-theme);
