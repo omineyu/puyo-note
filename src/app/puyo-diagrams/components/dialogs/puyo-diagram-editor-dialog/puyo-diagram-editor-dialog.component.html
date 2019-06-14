@@ -1,7 +1,7 @@
 <div class="editor">
 
   <app-puyo-diagram
-    class="diagram" [puyoDiagram]="puyoDiagram" [showCursor]="true" (clicked)="drawPuyo($event)">
+      class="diagram" [puyoDiagram]="puyoDiagram" [showCursor]="true" (clicked)="drawPuyo($event)">
   </app-puyo-diagram>
 
   <div class="palette">
@@ -11,17 +11,17 @@
     </button>
 
     <button
-      mat-icon-button
-      class="player-button"
-      (click)="puyoDiagram.isPlaying() ? puyoDiagram.stop() : puyoDiagram.play()">
-      <mat-icon>{{ puyoDiagram.isPlaying() ? 'stop' : 'play_arrow' }}</mat-icon>
+        mat-icon-button
+        class="player-button"
+        (click)="clickPlayerButton()">
+        <mat-icon>{{ playerButtonIcon() }}</mat-icon>
     </button>
 
     <div *ngFor="let puyo of PALETTE_PUYOS"
-      class="puyo-selector"
-      [class.selected]="puyo === selectedPuyo"
-      (click)="selectedPuyo = puyo">
-      <img src="../../../assets/images/puyos/palette/{{ Puyo.nameOf(puyo) }}.png" />
+        class="puyo-selector"
+        [class.selected]="puyo === selectedPuyo"
+        (click)="selectPuyo(puyo)">
+      <img src="../../../assets/images/puyos/palette/{{ nameOf(puyo) }}.png" />
     </div>
 
     <button mat-icon-button class="save-button" [mat-dialog-close]="puyoDiagram" color="primary">

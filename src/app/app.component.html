@@ -2,11 +2,13 @@
 
   <header class="header">
     <div class="header-left-and-right">
+
       <div class="header-left">
-        <a routerLink="">{{ settings.APP_NAME }}</a>
+        <a routerLink="">{{ APP_NAME }}</a>
       </div>
+
       <div class="header-right">
-        <span class="version">v{{ settings.APP_VERSION }}</span>
+        <span class="version">v{{ APP_VERSION }}</span>
         <button mat-icon-button routerLink="manual" color="accent" matTooltip="マニュアル">
           <mat-icon >help</mat-icon>
         </button>
@@ -20,11 +22,10 @@
           </a>
         </mat-menu>
       </div>
+
     </div>
   </header>
 
   <router-outlet></router-outlet>
-
-  <!-- <footer class="footer"></footer> -->
 
 </div>

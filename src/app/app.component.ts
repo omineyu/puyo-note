@@ -12,7 +12,8 @@ import { settings } from './settings';
 })
 export class AppComponent implements OnInit {
 
-  readonly settings = settings;
+  readonly APP_NAME = settings.APP_NAME;
+  readonly APP_VERSION = settings.APP_VERSION;
 
   constructor(
     private title: Title,

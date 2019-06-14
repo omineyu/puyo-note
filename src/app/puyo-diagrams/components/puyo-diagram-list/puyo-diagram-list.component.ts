@@ -17,6 +17,7 @@ import { PuyoDiagramEditorDialogComponent } from '../dialogs/puyo-diagram-editor
 export class PuyoDiagramListComponent implements OnInit {
 
   readonly STATUSES = keyValuesOfEnum(PuyoDiagramStatus);
+  readonly PAGE_SIZE_OPTIONS: ReadonlyArray<number> = [4, 8, 12];
 
   @Input() status!: PuyoDiagramStatus;
 
@@ -105,6 +106,19 @@ export class PuyoDiagramListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(afterClosed);
   }
 
+  clickPlayerButton(puyoDiagram: PuyoDiagram): void {
+    if (puyoDiagram.isPlaying()) {
+      puyoDiagram.stop();
+    } else {
+      this.stopPuyoDiagrams();
+      puyoDiagram.play();
+    }
+  }
+
+  playerButtonIcon(puyoDiagram: PuyoDiagram): string {
+    return puyoDiagram.isPlaying() ? 'stop' : 'play_arrow';
+  }
+
   private stopPuyoDiagrams(): void {
     if (this.puyoDiagrams === undefined) { return; }
     for (const diagram of this.puyoDiagrams) {
@@ -112,14 +126,14 @@ export class PuyoDiagramListComponent implements OnInit {
     }
   }
 
-  private handleError(error: Error): void {
-    this.snackBar.open(String(error), '閉じる');
-  }
-
   changePage(pageEvent: PageEvent): void {
     this.numPuyoDiagramsPerPage = pageEvent.pageSize;
     this.pageIndex = pageEvent.pageIndex;
     this.getPuyoDiagrams();
+  }
+
+  private handleError(error: Error): void {
+    this.snackBar.open(String(error), '閉じる');
   }
 
 }

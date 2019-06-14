@@ -1,8 +1,8 @@
 <mat-tab-group
-  class="puyo-diagram-lists"
-  mat-align-tabs="center"
-  animationDuration="0ms"
-  (selectedTabChange)="changeTab($event)">
+    class="puyo-diagram-lists"
+    mat-align-tabs="center"
+    animationDuration="0ms"
+    (selectedTabChange)="changeTab($event)">
   <ng-container *ngFor="let status of STATUSES">
     <mat-tab>
       <ng-template mat-tab-label>{{ status.value }}. {{ status.key }}</ng-template>

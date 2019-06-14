@@ -12,16 +12,23 @@ import { PuyoField } from '../../models/puyo-field';
 })
 export class PuyoDiagramComponent {
 
-  readonly Puyo = Puyo;
-  readonly PuyoField = PuyoField;
+  readonly ROW_INDICES = PuyoField.ROW_INDICES;
+  readonly COL_INDICES = PuyoField.COL_INDICES;
 
   @Input() puyoDiagram!: PuyoDiagram;
   @Input() showCursor = false;
   @Output() clicked = new EventEmitter<Tuple<number>>();
 
-  constructor() {}
+  puyoNameAt(position: Tuple<number>): string {
+    const puyo = this.puyoDiagram.field.getPuyo(position);
+    return Puyo.nameOf(puyo);
+  }
 
-  click(position: Tuple<number>) {
+  connectionStatusAt(position: Tuple<number>): string {
+    return this.puyoDiagram.field.connectionStatusAt(position);
+  }
+
+  click(position: Tuple<number>): void {
     this.clicked.emit(position);
   }
 

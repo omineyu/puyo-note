@@ -4,7 +4,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { Tuple } from 'src/app/utils/types';
 import { Puyo } from '../../../models/puyo';
 import { PuyoDiagram } from '../../../models/puyo-diagram';
-import { PuyoField } from '../../../models/puyo-field';
 
 @Component({
   selector: 'app-puyo-diagram-editor-dialog',
@@ -12,9 +11,6 @@ import { PuyoField } from '../../../models/puyo-field';
   styleUrls: ['./puyo-diagram-editor-dialog.component.scss']
 })
 export class PuyoDiagramEditorDialogComponent {
-
-  readonly Puyo = Puyo;
-  readonly PuyoField = PuyoField;
 
   readonly PALETTE_PUYOS: ReadonlyArray<Puyo> = [
     Puyo.Empty,
@@ -25,10 +21,16 @@ export class PuyoDiagramEditorDialogComponent {
     Puyo.Colored4,
   ];
 
+  readonly nameOf = Puyo.nameOf;
+
   selectedPuyo = Puyo.Colored1;
 
   constructor(@Inject(MAT_DIALOG_DATA) public puyoDiagram: PuyoDiagram) {
     this.puyoDiagram = puyoDiagram.copy();
+  }
+
+  selectPuyo(puyo: Puyo) {
+    this.selectedPuyo = puyo;
   }
 
   drawPuyo(position: Tuple<number>): void {
@@ -37,6 +39,18 @@ export class PuyoDiagramEditorDialogComponent {
     if (this.puyoDiagram.isPlaying()) { return; }
 
     this.puyoDiagram.field.setPuyo(position, this.selectedPuyo);
+  }
+
+  clickPlayerButton(): void {
+    if (this.puyoDiagram.isPlaying()) {
+       this.puyoDiagram.stop();
+     } else {
+       this.puyoDiagram.play();
+     }
+  }
+
+  playerButtonIcon(): string {
+    return this.puyoDiagram.isPlaying() ? 'stop' : 'play_arrow';
   }
 
 }

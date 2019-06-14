@@ -4,8 +4,8 @@ $puyo-size: 32px;
 
   user-select: none;
 
-  border: 1px solid #cccccc;
   padding: 5px 0 5px 0;
+  border: 1px solid #cccccc;
   background-color: white;
 
   .row {
@@ -18,7 +18,7 @@ $puyo-size: 32px;
       width: $puyo-size;
       height: $puyo-size;
       
-      .puyo-img {
+      .puyo-image {
         position: absolute;
       }
     
@@ -65,4 +65,3 @@ $puyo-size: 32px;
 .puyo1011 { @include puyo(2, 1) }
 .puyo0111 { @include puyo(2, 3) }
 .puyo1111 { @include puyo(2, 2) }
-
