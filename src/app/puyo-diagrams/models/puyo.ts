@@ -1,3 +1,6 @@
+/**
+ * ぷよの種類を表すenum。
+ */
 export enum Puyo {
   Wall     = -1,
   Empty    =  0,
@@ -10,6 +13,12 @@ export enum Puyo {
 
 export namespace Puyo {
 
+  /**
+   * ぷよの名前(半角英数)を取得する。
+   *
+   * @param puyo ぷよ
+   * @returns ぷよの名前
+   */
   export function nameOf(puyo: Puyo): string {
     switch (puyo) {
       case Puyo.Empty: return 'empty';
@@ -18,6 +27,12 @@ export namespace Puyo {
     }
   }
 
+  /**
+   * ぷよが色ぷよか判定する。
+   *
+   * @param puyo ぷよ
+   * @returns 色ぷよならばtrue
+   */
   export function isColoredType(puyo: Puyo): boolean {
     return [
       Puyo.Colored1,
@@ -27,6 +42,12 @@ export namespace Puyo {
     ].includes(puyo);
   }
 
+  /**
+   * ぷよが落下可能な種類か判定する。
+   *
+   * @param puyo ぷよ
+   * @returns 落下可能な種類ならばtrue
+   */
   export function isDroppableType(puyo: Puyo): boolean {
     return [
       Puyo.Colored1,

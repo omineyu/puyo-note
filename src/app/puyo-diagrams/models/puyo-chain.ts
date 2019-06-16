@@ -16,6 +16,11 @@ export class PuyoChain {
    */
   private readonly firstField: PuyoField;
 
+  /**
+   * PuyoChainを作成する。
+   *
+   * @param field フィールド
+   */
   constructor(
     private field: PuyoField
   ) {

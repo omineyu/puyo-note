@@ -19,6 +19,14 @@ export class PuyoDiagram {
    */
   private puyoChain?: PuyoChain;
 
+  /**
+   * PuyoDiagramを作成する。
+   *
+   * @param id ID
+   * @param name 名前(現在未使用)
+   * @param status ステータス
+   * @param field フィールド
+   */
   constructor(
     public readonly id: number | undefined,
     public readonly name: string,
@@ -122,8 +130,25 @@ export class PuyoDiagram {
  * PuyoDiagramをIndexedDBに保存する際の形式として使う。
  */
 export interface PuyoDiagramRecord {
+
+  /**
+   * ID。
+   */
   readonly id?: number;
+
+  /**
+   * 名前(現在未使用)。
+   */
   readonly name: string;
+
+  /**
+   * ステータス。
+   */
   readonly status: PuyoDiagramStatus;
+
+  /**
+   * フィールド。
+   */
   readonly field: Puyo[][];
+
 }

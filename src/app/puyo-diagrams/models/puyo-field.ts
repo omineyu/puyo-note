@@ -11,6 +11,11 @@ import { Puyo } from './puyo';
  */
 export class PuyoField {
 
+  /**
+   * PuyoFieldを作成する。
+   *
+   * @param data フィールドを表す2次元配列(周囲1マスの壁を含む)
+   */
   private constructor(
     private readonly data: Puyo[][]
   ) {}
