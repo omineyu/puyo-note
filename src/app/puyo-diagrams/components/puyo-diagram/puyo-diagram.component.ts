@@ -24,8 +24,8 @@ export class PuyoDiagramComponent {
     return Puyo.nameOf(puyo);
   }
 
-  connectionStatusAt(position: Tuple<number>): string {
     return this.puyoDiagram.field.connectionStatusAt(position);
+  calcConnectionStatus(position: Tuple<number>): string {
   }
 
   click(position: Tuple<number>): void {

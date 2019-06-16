@@ -3,7 +3,7 @@
     <div class="puyo" *ngFor="let j of COL_INDICES" (click)="click([i, j])">
       <div class="puyo-image">
         <img src="../../../assets/images/puyos/field/{{ puyoNameAt([i, j]) }}.png"
-            class="{{ 'puyo' + connectionStatusAt([i, j]) }}" />
+            class="{{ 'puyo' + calcConnectionStatus([i, j]) }}" />
       </div>
       <div class="cursor-on-hover" *ngIf="showCursor"></div>
     </div>

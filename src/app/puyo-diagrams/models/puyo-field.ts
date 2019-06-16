@@ -204,7 +204,7 @@ export class PuyoField {
    * @param position ぷよの位置
    * @returns ぷよの連結状態を表す文字列
    */
-  connectionStatusAt(position: Tuple<number>): string {
+  calcConnectionStatus(position: Tuple<number>): string {
 
     const puyo = this.getPuyo(position);
 
