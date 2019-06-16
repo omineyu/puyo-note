@@ -20,4 +20,4 @@ import { PuyoNoteManualComponent } from './puyo-note-manual/puyo-note-manual.com
     MatIconModule,
   ]
 })
-export class PuyoNoteManualModule { }
+export class PuyoNoteManualModule {}
