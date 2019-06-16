@@ -7,6 +7,7 @@ import { PuyoNoteManualComponent } from './puyo-note-manual/puyo-note-manual/puy
 const routes: Routes = [
   { path: '', component: PuyoDiagramListsComponent },
   { path: 'manual', component: PuyoNoteManualComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
