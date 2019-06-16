@@ -14,16 +14,20 @@ export enum Puyo {
 export namespace Puyo {
 
   /**
-   * ぷよの名前(半角英数)を取得する。
+   * ぷよ名(半角英数)を取得する。
    *
    * @param puyo ぷよ
-   * @returns ぷよの名前
+   * @returns ぷよ名
    */
   export function nameOf(puyo: Puyo): string {
     switch (puyo) {
-      case Puyo.Empty: return 'empty';
-      case Puyo.Ojama: return 'ojama';
-      default: return String(puyo);
+      case Puyo.Wall    : return 'wall';
+      case Puyo.Empty   : return 'empty';
+      case Puyo.Colored1: return 'colored1';
+      case Puyo.Colored2: return 'colored2';
+      case Puyo.Colored3: return 'colored3';
+      case Puyo.Colored4: return 'colored4';
+      case Puyo.Ojama   : return 'ojama';
     }
   }
 
