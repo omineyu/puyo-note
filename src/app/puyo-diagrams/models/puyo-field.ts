@@ -193,18 +193,18 @@ export class PuyoField {
   }
 
   /**
-   * 対象のぷよの連結状態を表す文字列を作成する。
+   * 対象のぷよの連結状態を計算する。
    *
-   * - 形式: '<右><左><下><上>'
-   *   - 例: '1010' (右と下のみ同色のぷよがある場合)
+   * - 形式: [<右>, <左>, <下>, <上>]
+   *   - 例: [true, false, true, false] (右と下のみ同色のぷよがある場合)
    *
    * - 色ぷよでないぷよは他のぷよと連結しない。
    * - 最上段のぷよは他のぷよと連結しない。
    *
    * @param position ぷよの位置
-   * @returns ぷよの連結状態を表す文字列
+   * @returns ぷよの連結状態
    */
-  calcConnectionStatus(position: Tuple<number>): string {
+  calcConnectionStatus(position: Tuple<number>): boolean[] {
 
     const puyo = this.getPuyo(position);
 
@@ -224,10 +224,7 @@ export class PuyoField {
       return adjacentPuyo === puyo;
     };
 
-    return adjacentPointsOf(position)
-      .map(isConnected)
-      .map(Number)
-      .join('');
+    return adjacentPointsOf(position).map(isConnected);
   }
 
   /**
