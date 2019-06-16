@@ -25,7 +25,7 @@ export class PuyoDiagramService {
    * PuyoDiagramServiceを作成する。
    */
   constructor() {
-    this.db = this.initDb();
+    this.db = this.setUpDb();
   }
 
   /**
@@ -33,7 +33,7 @@ export class PuyoDiagramService {
    *
    * @returns DexieのDB
    */
-  private initDb(): Dexie {
+  private setUpDb(): Dexie {
     const db = new Dexie(settings.DATABASE_NAME);
     db.version(1).stores({
       puyoDiagrams: '++id, name, status, field'
