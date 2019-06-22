@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import { keyValuesOfEnum } from 'src/app/utils/enum';
 import { PuyoDiagramStatus } from '../../models/puyo-diagram-status';
@@ -30,7 +30,7 @@ export class PuyoDiagramListsComponent {
   /**
    * ぷよ図一覧のコンポーネント。
    */
-  @ViewChild(PuyoDiagramListComponent) private puyoDiagramListComponent!: PuyoDiagramListComponent;
+  @ViewChild(PuyoDiagramListComponent, { static: true }) private puyoDiagramListComponent!: PuyoDiagramListComponent;
 
   /**
    * タブを切り替える。

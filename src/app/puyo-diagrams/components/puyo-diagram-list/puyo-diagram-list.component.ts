@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { MatDialog, MatSnackBar, PageEvent } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { keyValuesOfEnum } from 'src/app/utils/enum';
 import { PuyoDiagram } from '../../models/puyo-diagram';
