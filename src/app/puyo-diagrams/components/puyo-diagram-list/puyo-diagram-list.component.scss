@@ -65,19 +65,25 @@
 
 .no-puyo-diagrams {
 
-  // 中央寄せ
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  width: 1056px;
+  height: calc(517px - 172px);
+  margin: -84px auto 0 auto;
+  padding: 172px 0 0 0;
+  background: url('src/assets/images/note/sample_diagrams_bg.png');
 
-  .add-button-sample {
+  .navigation {
     @include mat-elevation(2);
-    margin: 0 5px 0 5px;
-  }
-
-  a {
-    color: #0000ff;
+    margin: 0 auto 0 auto;
+    width: 490px;
+    padding: 25px 0 10px 40px;
+    background-color: #ffffff;
+    .add-button-sample {
+      @include mat-elevation(2);
+      margin: 0 5px 0 5px;
+    }
+    a {
+      color: #0000ff;
+    }
   }
 
 }
