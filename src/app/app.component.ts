@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    // ブラウザーの種類をチェック
+    // ブラウザの種類をチェック
     this.checkBrowser();
 
     // ページタイトルを設定
@@ -46,12 +46,12 @@ export class AppComponent implements OnInit {
   }
 
   /**
-   * ブラウザーの種類をチェックし、Chrome以外であればアラートを出す。
+   * ブラウザの種類をチェックし、Chrome以外であればアラートを出す。
    */
   private checkBrowser(): void {
     const deviceInfo = this.deviceService.getDeviceInfo();
     if (deviceInfo.browser !== BROWSERS.CHROME) {
-      alert('注: Google Chrome以外のブラウザーは動作対象外です。');
+      alert('注: Google Chrome以外のブラウザは動作対象外です。');
     }
   }
 
