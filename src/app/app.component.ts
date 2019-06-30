@@ -43,19 +43,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    // ブラウザの種類をチェック
-    this.checkBrowser();
+    // 動作環境を検証
+    this.validateEnvironment();
 
     // ページタイトルを設定
     this.title.setTitle(settings.APP_NAME);
   }
 
   /**
-   * ブラウザの種類をチェックし、Chrome以外であればアラートを出す。
+   * 動作環境を検証する。
+   *
+   * 動作環境が以下の条件を満たすことを検証し、満たさない場合はアラートを出す。
+   *
+   * - モバイル端末でないこと。
+   * - ブラウザがGoogle Chromeであること。
    */
-  private checkBrowser(): void {
-    const deviceInfo = this.deviceService.getDeviceInfo();
-    if (deviceInfo.browser !== BROWSERS.CHROME) {
+  private validateEnvironment(): void {
+    if (this.deviceService.isMobile() || this.deviceService.isTablet()) {
+      alert('注: モバイル端末は動作対象外です。');
+    }
+    if (this.deviceService.browser !== BROWSERS.CHROME) {
       alert('注: Google Chrome以外のブラウザは動作対象外です。');
     }
   }
