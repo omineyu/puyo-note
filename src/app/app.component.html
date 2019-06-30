@@ -1,4 +1,4 @@
-<div class="puyo-note">
+<div class="puyo-note" *ngIf="isValidDomain(); else to_valid_domain">
 
   <header class="header">
     <div class="header-left-and-right">
@@ -29,3 +29,7 @@
   <router-outlet></router-outlet>
 
 </div>
+
+<ng-template #to_valid_domain>
+  <a href="{{ APP_URL }}">{{ APP_URL }}</a>
+</ng-template>

@@ -26,6 +26,11 @@ export class AppComponent implements OnInit {
   readonly APP_VERSION = settings.APP_VERSION;
 
   /**
+   * アプリケーションURL。
+   */
+  readonly APP_URL = settings.APP_URL;
+
+  /**
    * AppComponentを作成する。
    *
    * @param title Title
@@ -53,6 +58,21 @@ export class AppComponent implements OnInit {
     if (deviceInfo.browser !== BROWSERS.CHROME) {
       alert('注: Google Chrome以外のブラウザは動作対象外です。');
     }
+  }
+
+  /**
+   * アプリケーションがデプロイされたドメインが正しいものであるか検証する。
+   *
+   * - 本アプリケーションはIndexedDBを使用しているため、
+   *   ドメインが変わるとデータの保存先が変わってしまう。
+   *   このためドメインが正しいことを検証する必要がある。
+   */
+  isValidDomain(): boolean {
+    const validDomains = [
+      settings.APP_DOMAIN,
+      'localhost' // 開発用としてlocalhostも許可
+    ];
+    return validDomains.includes(document.domain);
   }
 
 }
