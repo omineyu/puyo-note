@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from '../app-routing.module';
 
-import { PuyoNoteManualComponent } from './puyo-note-manual/puyo-note-manual.component';
+import { PuyoNoteManualComponent } from './components/puyo-note-manual/puyo-note-manual.component';
 
 @NgModule({
   declarations: [
