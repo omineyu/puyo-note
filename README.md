@@ -22,18 +22,18 @@ https://puyo-note.com/manual
 ```
 src/
     app/
-        puyo-diagrams/                        ... ぷよ図モジュール(ぷよ図管理のモジュール)のディレクトリ
-            components/                       ... ぷよ図モジュールのコンポーネント一式
-            models/                           ... ぷよ図モジュールのモデル一式(※1)
-            services/                         ... ぷよ図モジュールのサービス一式(※2)
-            puyo-diagrams.module.ts           ... ぷよ図モジュール
-        puyo-note-manual/                     ... ぷよのーとマニュアルモジュールのディレクトリ
-            components/                       ... ぷよのーとマニュアルモジュールのコンポーネント一式
-                puyo-note-manual.module.ts    ... ぷよのーとマニュアルモジュール
-        utils/                                ... ユーティリティ
-        app.module.ts                         ... ルートモジュール
+        puyo-diagrams/                  ... ぷよ図モジュール(ぷよ図管理のモジュール)のディレクトリ
+            components/                 ... ぷよ図モジュールのコンポーネント一式
+            models/                     ... ぷよ図モジュールのモデル一式(※1)
+            services/                   ... ぷよ図モジュールのサービス一式(※2)
+            puyo-diagrams.module.ts     ... ぷよ図モジュール
+        puyo-note-manual/               ... ぷよのーとマニュアルモジュールのディレクトリ
+            components/                 ... ぷよのーとマニュアルモジュールのコンポーネント一式
+            puyo-note-manual.module.ts  ... ぷよのーとマニュアルモジュール
+        utils/                          ... ユーティリティ
+        app.module.ts                   ... ルートモジュール
     assets/
-        images/                               ... 画像ファイル一式
+        images/                         ... 画像ファイル一式
 ```
 
 (※1) ここでいうモデルとは、コンポーネントに依存しない純粋なデータおよびロジックのことです。  
